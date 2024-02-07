@@ -1,10 +1,13 @@
 package com.abhi.tutorial.spring;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BubbleSort implements SortAlgoirthm {
 
 	@Override
 	public int[] sortArray(int[] numberArray) {
-		return new int[] {1,2,4,7};
+		return numberArray;
 	}
 
 }
