@@ -1,8 +1,13 @@
 package com.abhi.tutorial.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearchImpl {
 	
 //	It will need a sorted array for search
+	@Autowired
 	private SortAlgoirthm sortAlgo ;
 	
 	BinarySearchImpl(SortAlgoirthm sortAlgo){
@@ -11,15 +16,15 @@ public class BinarySearchImpl {
 	}
 	
 
-	public int search(int i) {
-		int numArray[] = new int[4];
+	public int search(int i, int numArray[]) {
 		int [] sortedArray = sortAlgo.sortArray(numArray);
-		return search(3, sortedArray);
+		System.out.println(sortedArray);
+		return search(i);
 		
 		
 	}
 	
-	private int search(int i , int [] sortedArray){
+	private int search(int i){
 		return i+3;	
 	}
 	
