@@ -8,7 +8,7 @@ public class BinarySearchImpl {
 	
 //	It will need a sorted array for search
 	@Autowired
-	private SortAlgoirthm sortAlgo ;
+	private SortAlgoirthm quickSort ;
 	
 //	BinarySearchImpl(SortAlgoirthm bubbleSortAlgoirthm){
 //		super();
@@ -17,7 +17,7 @@ public class BinarySearchImpl {
 	
 
 	public int search(int i, int numArray[]) {
-		int [] sortedArray = sortAlgo.sortArray(numArray);
+		int [] sortedArray = quickSort.sortArray(numArray);
 		System.out.println(sortedArray);
 		return search(i);
 		
