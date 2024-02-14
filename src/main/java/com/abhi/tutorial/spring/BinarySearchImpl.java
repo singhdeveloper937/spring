@@ -1,6 +1,7 @@
 package com.abhi.tutorial.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +9,8 @@ public class BinarySearchImpl {
 	
 //	It will need a sorted array for search
 	@Autowired
-	private SortAlgoirthm quickSort ;
+	@Qualifier("bubbleSortAlgo")
+	private SortAlgoirthm bubbleSortAlgo ;
 	
 //	BinarySearchImpl(SortAlgoirthm bubbleSortAlgoirthm){
 //		super();
@@ -17,7 +19,7 @@ public class BinarySearchImpl {
 	
 
 	public int search(int i, int numArray[]) {
-		int [] sortedArray = quickSort.sortArray(numArray);
+		int [] sortedArray = bubbleSortAlgo.sortArray(numArray);
 		System.out.println(sortedArray);
 		return search(i);
 		
