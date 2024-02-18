@@ -1,4 +1,4 @@
-package com.abhi.tutorial.spring;
+package com.abhi.tutorial.spring.basic;
 
 public interface SortAlgoirthm {
 	
