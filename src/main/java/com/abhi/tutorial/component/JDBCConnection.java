@@ -1,4 +1,4 @@
-package com.abhi.tutorial.spring.scope;
+package com.abhi.tutorial.component;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;

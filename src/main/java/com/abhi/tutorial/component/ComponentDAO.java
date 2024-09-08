@@ -1,4 +1,4 @@
-package com.abhi.tutorial.spring.scope;
+package com.abhi.tutorial.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class PersonDAO {
+public class ComponentDAO {
 	
 	@Autowired
 	/*
 	 * Dependency will always be singleton even if defined as prototype on dependency level
 	 * but singleton on the bean level
-	 * To overcome the default singleton use proxy mode on depenency
+	 * To overcome the default singleton use proxy mode on dependency
 	 */
 	private JDBCConnection jdbccon;
 	
