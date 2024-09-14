@@ -2,6 +2,7 @@ package com.abhi.tutorial.spring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,15 +23,18 @@ public class ApplicationScope {
 		 * class
 		 */
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationScope.class);
-		
-		ComponentDAO dao1 = context.getBean(ComponentDAO.class);
-		LOGGER.info("{}", dao1)	;	
-		LOGGER.info("{}", dao1.getJdbccon())	;
-		ComponentDAO dao2 = context.getBean(ComponentDAO.class);
-		LOGGER.info("{}", "The second Object");
-		LOGGER.info("{}", dao2);
-	    LOGGER.info("{}", dao2.getJdbccon());
+		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationScope.class)) {
+			ComponentDAO dao1 = context.getBean(ComponentDAO.class);
+			LOGGER.info("{}", dao1)	;	
+			LOGGER.info("{}", dao1.getJdbccon())	;
+			ComponentDAO dao2 = context.getBean(ComponentDAO.class);
+			LOGGER.info("{}", "The second Object");
+			LOGGER.info("{}", dao2);
+			LOGGER.info("{}", dao2.getJdbccon());
+		} catch (BeansException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
