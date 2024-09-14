@@ -2,14 +2,13 @@ package com.abhi.tutorial.spring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.abhi.tutorial.component.ComponentDAO;
 
-@SpringBootApplication
+@Configuration
 @ComponentScan("com.abhi.tutorial.component")
 public class ApplicationScope {
 
@@ -23,7 +22,7 @@ public class ApplicationScope {
 		 * class
 		 */
 		
-		ApplicationContext context = SpringApplication.run(ApplicationScope.class, args);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationScope.class);
 		
 		ComponentDAO dao1 = context.getBean(ComponentDAO.class);
 		LOGGER.info("{}", dao1)	;	
