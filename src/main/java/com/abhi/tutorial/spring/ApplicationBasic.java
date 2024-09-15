@@ -1,12 +1,13 @@
 package com.abhi.tutorial.spring;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.abhi.tutorial.spring.basic.BinarySearchImpl;
 
-@SpringBootApplication
+@Configuration
+@ComponentScan // Current package and the sub-packages as default in springboot but not in spring
 public class ApplicationBasic {
 
 	public static void main(String[] args) {
@@ -22,9 +23,12 @@ public class ApplicationBasic {
 		 * Alternative approach BinarySearchImpl impl = new BinarySearchImpl(new
 		 * BubbleSort()); System.out.println(impl.search(4));
 		 */
-		ApplicationContext context = SpringApplication.run(ApplicationBasic.class, args);
+//		ApplicationContext context = SpringApplication.run(ApplicationBasic.class, args);
+		try(AnnotationConfigApplicationContext context  = new AnnotationConfigApplicationContext(ApplicationBasic.class))
+		{
 		BinarySearchImpl serachimpl = context.getBean(BinarySearchImpl.class);
 		System.out.println(serachimpl.search(5, new int[]{1,4,5,7}));
+		}
 	}
 
 }

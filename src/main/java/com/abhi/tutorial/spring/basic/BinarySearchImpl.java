@@ -1,15 +1,11 @@
+
 package com.abhi.tutorial.spring.basic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 
 @Component
 public class BinarySearchImpl {
@@ -39,23 +35,23 @@ public class BinarySearchImpl {
 		return i+3;	
 	}
 	
-	@PostConstruct
-	/**
-	 * This annotation calls the linked method
-	 * after all the beans are created and populated
-	 */
-	public void afterConstruct() {
-		logger.info("Post construct is called");
-	}
-	
-	@PreDestroy
-	/**
-	 * The linked method is called 
-	 * as callback to signal that the bean 
-	 * instance is getting removed from the context/
-	 */
-	public void beforeDestroy() {
-		logger.info("pre destroy called");
-	}
+//	@PostConstruct
+//	/**
+//	 * This annotation calls the linked method
+//	 * after all the beans are created and populated
+//	 */
+//	public void afterConstruct() {
+//		logger.info("Post construct is called");
+//	}
+//	
+//	@PreDestroy
+//	/**
+//	 * The linked method is called 
+//	 * as callback to signal that the bean 
+//	 * instance is getting removed from the context/
+//	 */
+//	public void beforeDestroy() {
+//		logger.info("pre destroy called");
+//	}
 
 }
