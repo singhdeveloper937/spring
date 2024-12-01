@@ -23,6 +23,7 @@ public class ApplicationBasic {
 		 * Alternative approach BinarySearchImpl impl = new BinarySearchImpl(new
 		 * BubbleSort()); System.out.println(impl.search(4));
 		 */
+//	The application context is used with spring boot 	
 //		ApplicationContext context = SpringApplication.run(ApplicationBasic.class, args);
 		try(AnnotationConfigApplicationContext context  = new AnnotationConfigApplicationContext(ApplicationBasic.class))
 		{
